@@ -33,3 +33,12 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 # comp1113_calculator
+
+To dos:
+- [] Add base calculator
+- [] Add floating point conversion
+- [] Add floating point calculator
+- [] Add boolean algebra calculator
+- [] Add logaritmic calculator
+- [] Add linear equation / matrix calculator
+
