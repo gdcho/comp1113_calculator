@@ -6,26 +6,29 @@ import Image from "next/image";
 const Header = ({ setView }) => {
   return (
     <header className="bg-stone-100 py-1 px-2">
-      <nav className="container flex items-center justify-between text-sm font-mono tracking-wider uppercase text-stone-500">
+      <nav className="container flex items-center justify-between text-sm font-mono tracking-wider uppercase text-stone-500 cursor-pointer">
         <div
           className="flex items-center mr-4"
           onClick={() => setView("image")}
         >
           <Image src="/img/bcit.png" alt="BCIT" width={87} height={73} />
         </div>
-        <div className="flex space-x-4">
+        <div className="flex space-x-5">
           <ul className="list-none">
             <li
-              className="px-4 py-2 rounded bg-white shadow"
+              className="px-4 py-2 rounded bg-white shadow cursor-pointer"
               onClick={() => setView("baseConverter")}
             >
               Base Converter
             </li>{" "}
           </ul>
           <ul className="list-none">
-            <li className="px-4 py-2 rounded bg-white shadow">
+            <li
+              className="px-4 py-2 rounded bg-white shadow cursor-pointer"
+              onClick={() => setView("baseCalculator")}
+            >
               Base Calculator
-            </li>
+            </li>{" "}
           </ul>
         </div>
       </nav>

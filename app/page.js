@@ -2,10 +2,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { convertBase, calculateConversion } from "./utils/baseConversion";
-import BaseSelect from "./components/BaseSelect";
-import ValueInput from "./components/ValueInput";
-import Result from "./components/Result";
+import BaseSelect from "./components/baseConvert/BaseSelect";
+import ValueInput from "./components/baseConvert/ValueInput";
+import Result from "./components/baseConvert/Result";
+import CalculateResult from "./components/baseCalculate/CalculateResult";
 import RootLayout from "./layout";
+import BaseCalculator from "./components/baseCalculate/BaseCalculator";
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -13,11 +15,16 @@ export default function App() {
   const [toBase, setToBase] = useState(10);
   const [result, setResult] = useState("");
   const [calculation, setCalculation] = useState("");
-  const [view, setView] = useState(null); // Set the initial view to null
-  const [shouldRenderImage, setShouldRenderImage] = useState(false); // new state variable
+  const [calculationResult, setCalculationResult] = useState(null);
+  const [view, setView] = useState(null);
+  const [shouldRenderImage, setShouldRenderImage] = useState(false);
+  const [num1, setNum1] = useState("");
+  const [num2, setNum2] = useState("");
+  const [operation, setOperation] = useState("+");
+  const [base, setBase] = useState(10);
 
   useEffect(() => {
-    setView("image"); // Set the view after the initial render
+    setView("image");
   }, []);
 
   useEffect(() => {
@@ -48,7 +55,6 @@ export default function App() {
     backgroundSize: "0.8em 0.8em",
   };
 
-  // Don't render anything until the view state is set
   if (view === null) {
     return null;
   }
@@ -73,25 +79,23 @@ export default function App() {
           <p
             style={{
               textAlign: "center",
-              fontSize: "23px",
+              fontSize: "20px",
             }}
           >
             COMP 1113 - Applied Mathematics for Computing
           </p>
           <p
             style={{
-              textAlign: "center"
+              textAlign: "center",
             }}
           >
-          COMP 1113 calculator is to help students with the course.
-          <br />
-          The course is divided into three parts: 
-          <br />
-          (1) Boolean algebra and design of logic circuits; 
-          <br />
-          (2) number systems and data representation; and 
-          <br />
-          (3) functions, linear equations, vectors and matrices. 
+            The course is divided into three parts:
+            <br />
+            (1) Boolean algebra and design of logic circuits;
+            <br />
+            (2) number systems and data representation; and
+            <br />
+            (3) functions, linear equations, vectors and matrices.
           </p>
         </div>
       )}
@@ -112,6 +116,23 @@ export default function App() {
           <Result result={result} calculation={calculation} toBase={toBase} />
           <br />
         </div>
+      )}
+      {view === "baseCalculator" && (
+        <div>
+        <BaseCalculator
+          num1={num1} 
+          setNum1={setNum1} 
+          num2={num2}
+          setNum2={setNum2}
+          operation={operation}
+          setOperation={setOperation}
+          base={base}
+          setBase={setBase}
+          calculationResult={calculationResult}
+          setCalculationResult={setCalculationResult}
+        />
+        <CalculateResult result={calculationResult} />
+      </div>
       )}
     </RootLayout>
   );
