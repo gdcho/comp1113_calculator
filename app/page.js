@@ -55,6 +55,27 @@ export default function App() {
     backgroundSize: "0.8em 0.8em",
   };
 
+  const operationStyles = {
+    display: "inline-block",
+    position: "relative",
+    textAlign: "center",
+    width: "100px",
+    height: "45px",
+    padding: "5px 5px",
+    fontSize: "14px",
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+    backgroundColor: "#fff",
+    backgroundImage:
+      "url(\"data:image/svg+xml;utf8,<svg fill='%232C3E50' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>\")",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "right 0.5em center",
+    backgroundSize: "0.9em 0.9em",
+    appearance: "none",
+    WebkitAppearance: "none",
+    MozAppearance: "none",
+  };
+
   if (view === null) {
     return null;
   }
@@ -119,20 +140,21 @@ export default function App() {
       )}
       {view === "baseCalculator" && (
         <div>
-        <BaseCalculator
-          num1={num1} 
-          setNum1={setNum1} 
-          num2={num2}
-          setNum2={setNum2}
-          operation={operation}
-          setOperation={setOperation}
-          base={base}
-          setBase={setBase}
-          calculationResult={calculationResult}
-          setCalculationResult={setCalculationResult}
-        />
-        <CalculateResult result={calculationResult} />
-      </div>
+          <BaseCalculator
+            base={base}
+            setBase={setBase}
+            num1={num1}
+            setNum1={setNum1}
+            num2={num2}
+            setNum2={setNum2}
+            operation={operation}
+            setOperation={setOperation}
+            operationStyle={operationStyles}
+            calculationResult={calculationResult}
+            setCalculationResult={setCalculationResult}
+          />
+          <CalculateResult result={calculationResult} />
+        </div>
       )}
     </RootLayout>
   );

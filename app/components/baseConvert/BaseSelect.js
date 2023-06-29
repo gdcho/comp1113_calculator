@@ -1,9 +1,9 @@
 import React from 'react';
 
-function BaseSelect({ base, setBase, style }) {
+function BaseSelect({ base, setBase, operationStyle }) {
   return (
     <select
-      style={style}
+      style={operationStyle}
       value={base}
       onChange={(e) => setBase(parseInt(e.target.value))}
     >

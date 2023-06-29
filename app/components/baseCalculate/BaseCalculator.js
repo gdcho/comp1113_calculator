@@ -11,6 +11,7 @@ function BaseCalculator({
   setNum2,
   operation,
   setOperation,
+  operationStyle,
   base,
   setBase,
   calculationResult,
@@ -27,13 +28,13 @@ function BaseCalculator({
 
   return (
     <div>
+      <BaseSelect base={base} setBase={setBase} operationStyle={operationStyle} />
       <input
         type="number"
         value={num1}
         onChange={(e) => setNum1(e.target.value)}
       />
-      <BaseSelect base={base} setBase={setBase} />
-      <OperationSelect operation={operation} setOperation={setOperation} />
+      <OperationSelect operation={operation} setOperation={setOperation} operationStyle={operationStyle} />
       <input
         type="number"
         value={num2}
