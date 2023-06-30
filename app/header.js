@@ -34,14 +34,14 @@ const Header = ({ setView }) => {
 
   return (
     <header className="bg-stone-100 py-1 px-2">
-      <nav className="container flex items-center justify-between text-sm font-mono tracking-wider uppercase text-stone-500 cursor-pointer">
+      <nav className="container flex flex-col md:flex-row items-center justify-between text-sm font-mono tracking-wider uppercase text-stone-500 cursor-pointer">
         <div
-          className="flex items-center mr-4"
+          className="flex items-center mr-2 mb-4 md:mb-0"
           onClick={() => setView("image")}
         >
           <Image src="/img/bcit.png" alt="BCIT" width={87} height={73} />
         </div>
-        <div className="flex space-x-5">
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-5">
           <div className="relative" ref={baseRef}>
             <div className="px-4 py-2 rounded bg-white shadow cursor-pointer" onClick={() => setBaseDropdownOpen(!baseDropdownOpen)}>
               Base
@@ -89,4 +89,3 @@ const Header = ({ setView }) => {
 };
 
 export default Header;
-
