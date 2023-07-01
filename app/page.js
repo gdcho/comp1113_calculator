@@ -1,5 +1,6 @@
 // page.js
 "use client";
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { convertBase, calculateConversion } from "./utils/baseConversion";
 import BaseSelect from "./components/baseConvert/BaseSelect";
@@ -8,6 +9,7 @@ import Result from "./components/baseConvert/Result";
 import CalculateResult from "./components/baseCalculate/CalculateResult";
 import RootLayout from "./layout";
 import BaseCalculator from "./components/baseCalculate/BaseCalculator";
+import BooleanCalculator from "./components/booleanCalculate/BooleanCalculator";
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -22,6 +24,10 @@ export default function App() {
   const [num2, setNum2] = useState("");
   const [operation, setOperation] = useState("+");
   const [base, setBase] = useState(10);
+
+  const [boolValue1, setBoolValue1] = useState(false);
+  const [boolValue2, setBoolValue2] = useState(false);
+  const [boolOperation, setBoolOperation] = useState("AND");
 
   useEffect(() => {
     setView("image");
@@ -90,7 +96,7 @@ export default function App() {
             alignItems: "center",
           }}
         >
-          <img
+          <Image
             src="/img/comp_1113.png"
             alt="COMP1113"
             width={400}
@@ -155,6 +161,16 @@ export default function App() {
           />
           <CalculateResult result={calculationResult} />
         </div>
+      )}
+       {view === "booleanCalculator" && (
+        <BooleanCalculator 
+            value1={boolValue1}
+            setValue1={setBoolValue1}
+            value2={boolValue2}
+            setValue2={setBoolValue2}
+            operation={boolOperation}
+            setOperation={setBoolOperation}
+        />
       )}
     </RootLayout>
   );
