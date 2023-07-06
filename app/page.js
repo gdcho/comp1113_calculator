@@ -10,6 +10,7 @@ import CalculateResult from "./components/baseCalculate/CalculateResult";
 import RootLayout from "./layout";
 import BaseCalculator from "./components/baseCalculate/BaseCalculator";
 import BooleanCalculator from "./components/booleanCalculate/BooleanCalculator";
+import LogarithmCalculator from "./components/logCalculate/LogarithmCalculator";
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -28,6 +29,9 @@ export default function App() {
   const [boolValue1, setBoolValue1] = useState(false);
   const [boolValue2, setBoolValue2] = useState(false);
   const [boolOperation, setBoolOperation] = useState("AND");
+
+  const [logBase, setLogBase] = useState(10);
+  const [logValue, setLogValue] = useState("");
 
   useEffect(() => {
     setView("image");
@@ -162,14 +166,27 @@ export default function App() {
           <CalculateResult result={calculationResult} />
         </div>
       )}
-       {view === "booleanCalculator" && (
-        <BooleanCalculator 
-            value1={boolValue1}
-            setValue1={setBoolValue1}
-            value2={boolValue2}
-            setValue2={setBoolValue2}
-            operation={boolOperation}
-            setOperation={setBoolOperation}
+      {view === "booleanCalculator" && (
+        <BooleanCalculator
+          value1={boolValue1}
+          setValue1={setBoolValue1}
+          value2={boolValue2}
+          setValue2={setBoolValue2}
+          operation={boolOperation}
+          setOperation={setBoolOperation}
+        />
+      )}
+      {view === "logarithmCalculator" && (
+        <LogarithmCalculator
+        base={logBase}
+        value={logValue}
+        setValue={setLogValue}
+        setBase={setLogBase}
+        selectStyles={selectStyles}
+        operationStyles={operationStyles}
+        setResult={setResult}
+        calculationResult={calculationResult}
+        result={result}
         />
       )}
     </RootLayout>
