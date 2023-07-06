@@ -10,7 +10,9 @@ import CalculateResult from "./components/baseCalculate/CalculateResult";
 import RootLayout from "./layout";
 import BaseCalculator from "./components/baseCalculate/BaseCalculator";
 import BooleanCalculator from "./components/booleanCalculate/BooleanCalculator";
+import OperationTypeSelect from "./components/baseConvert/OperationTypeSelect";
 import LogarithmCalculator from "./components/logCalculate/LogarithmCalculator";
+import ExponentialCalculator from "./components/expCalculate/ExponentialCalculator";
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -32,6 +34,9 @@ export default function App() {
 
   const [logBase, setLogBase] = useState(10);
   const [logValue, setLogValue] = useState("");
+  const [operationType, setOperationType] = useState("logarithm");
+  const [expBase, setExpBase] = useState(10);
+  const [expValue, setExpValue] = useState("");
 
   useEffect(() => {
     setView("image");
@@ -176,18 +181,36 @@ export default function App() {
           setOperation={setBoolOperation}
         />
       )}
-      {view === "logarithmCalculator" && (
-        <LogarithmCalculator
-        base={logBase}
-        value={logValue}
-        setValue={setLogValue}
-        setBase={setLogBase}
-        selectStyles={selectStyles}
-        operationStyles={operationStyles}
-        setResult={setResult}
-        calculationResult={calculationResult}
-        result={result}
-        />
+      {view === "exponentialOrLogarithm" && (
+        <>
+          <OperationTypeSelect
+            operationType={operationType}
+            setOperationType={setOperationType}
+            options={["logarithm", "exponential"]}
+          />
+          {operationType === "logarithm" && (
+            <LogarithmCalculator
+              base={logBase}
+              value={logValue}
+              setValue={setLogValue}
+              setBase={setLogBase}
+              selectStyles={selectStyles}
+              setResult={setResult}
+              result={result}
+            />
+          )}
+          {operationType === "exponential" && (
+            <ExponentialCalculator
+              base={expBase}
+              value={expValue}
+              setValue={setExpValue}
+              setBase={setExpBase}
+              selectStyles={selectStyles}
+              setResult={setResult}
+              result={result}
+            />
+          )}
+        </>
       )}
     </RootLayout>
   );

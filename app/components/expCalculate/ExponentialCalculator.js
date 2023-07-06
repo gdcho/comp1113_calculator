@@ -1,10 +1,10 @@
-// components/logCalculate/LogarithmCalculator.js
+// components/expCalculate/ExponentialCalculator.js
 "use client";
 import React, { useEffect } from "react";
 import ValueInput from '../baseConvert/ValueInput';
 import BaseSelect from '../baseConvert/BaseSelect';
 
-function LogarithmCalculator({
+function ExponentialCalculator({
   base,
   value,
   setValue,
@@ -17,7 +17,7 @@ function LogarithmCalculator({
     if (isNaN(value) || isNaN(base)) {
       setResult('Invalid Input');
     } else {
-      const result = Math.log(value) / Math.log(base);
+      const result = Math.pow(base, value);
       setResult(result);
     }
   }, [value, base]);
@@ -29,9 +29,9 @@ function LogarithmCalculator({
         setValue={setValue}
       />
       <BaseSelect base={base} setBase={setBase} style={selectStyles} />
-      <p>Log base {base} of {value} is: {result}</p>
+      <p>Base {base} to the power of {value} is: {result}</p>
     </div>
   );
 }
 
-export default LogarithmCalculator;
+export default ExponentialCalculator;
