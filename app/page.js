@@ -13,6 +13,7 @@ import BooleanCalculator from "./components/booleanCalculate/BooleanCalculator";
 import OperationTypeSelect from "./components/baseConvert/OperationTypeSelect";
 import LogarithmCalculator from "./components/logCalculate/LogarithmCalculator";
 import ExponentialCalculator from "./components/expCalculate/ExponentialCalculator";
+import MatrixCalculator from "./components/matrixCalculate/MatrixCalculator"; 
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -37,6 +38,10 @@ export default function App() {
   const [operationType, setOperationType] = useState("logarithm");
   const [expBase, setExpBase] = useState(10);
   const [expValue, setExpValue] = useState("");
+
+  const [matrix1, setMatrix1] = useState("");
+  const [matrix2, setMatrix2] = useState("");
+  const [matrixOperation, setMatrixOperation] = useState("Add");
 
   useEffect(() => {
     setView("image");
@@ -211,6 +216,16 @@ export default function App() {
             />
           )}
         </>
+      )}
+      {view === "matrixCalculator" && (
+        <MatrixCalculator 
+          matrix1={matrix1} 
+          setMatrix1={setMatrix1} 
+          matrix2={matrix2} 
+          setMatrix2={setMatrix2} 
+          matrixOperation={operation} 
+          setMatrixOperation={setOperation}
+        />
       )}
     </RootLayout>
   );
