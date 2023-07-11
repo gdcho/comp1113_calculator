@@ -15,6 +15,7 @@ import LogarithmCalculator from "./components/logCalculate/LogarithmCalculator";
 import ExponentialCalculator from "./components/expCalculate/ExponentialCalculator";
 import MatrixCalculator from "./components/matrixCalculate/MatrixCalculator";
 import NumberConverter from "./components/signedNumber/NumberConverter";
+import MiniFloatConverter from "./components/floatConvert/MiniFloatConverter";
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -177,6 +178,7 @@ export default function App() {
           <CalculateResult result={calculationResult} />
         </div>
       )}
+      {view === "miniFloatConverter" && <MiniFloatConverter />}
       {view === "numberConverter" && <NumberConverter />}
       {view === "booleanCalculator" && (
         <BooleanCalculator

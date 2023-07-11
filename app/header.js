@@ -103,11 +103,11 @@ const Header = ({ setView }) => {
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
                     onClick={() => {
-                      setView("floatConverter");
+                      setView("miniFloatConverter");
                       setFloatDropdownOpen(false);
                     }}
                   >
-                    Floating Point Converter
+                    Mini Float Converter
                   </a>
                   <a
                     href="#"
@@ -148,7 +148,7 @@ const Header = ({ setView }) => {
                       setOtherDropdownOpen(false);
                     }}
                   >
-                    Signed Number 
+                    Signed Number
                   </a>
                   <a
                     href="#"
