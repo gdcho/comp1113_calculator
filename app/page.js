@@ -13,7 +13,8 @@ import BooleanCalculator from "./components/booleanCalculate/BooleanCalculator";
 import OperationTypeSelect from "./components/baseConvert/OperationTypeSelect";
 import LogarithmCalculator from "./components/logCalculate/LogarithmCalculator";
 import ExponentialCalculator from "./components/expCalculate/ExponentialCalculator";
-import MatrixCalculator from "./components/matrixCalculate/MatrixCalculator"; 
+import MatrixCalculator from "./components/matrixCalculate/MatrixCalculator";
+import NumberConverter from "./components/signedNumber/NumberConverter";
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -176,6 +177,7 @@ export default function App() {
           <CalculateResult result={calculationResult} />
         </div>
       )}
+      {view === "numberConverter" && <NumberConverter />}
       {view === "booleanCalculator" && (
         <BooleanCalculator
           value1={boolValue1}
@@ -218,12 +220,12 @@ export default function App() {
         </>
       )}
       {view === "matrixCalculator" && (
-        <MatrixCalculator 
-          matrix1={matrix1} 
-          setMatrix1={setMatrix1} 
-          matrix2={matrix2} 
-          setMatrix2={setMatrix2} 
-          matrixOperation={operation} 
+        <MatrixCalculator
+          matrix1={matrix1}
+          setMatrix1={setMatrix1}
+          matrix2={matrix2}
+          setMatrix2={setMatrix2}
+          matrixOperation={operation}
           setMatrixOperation={setOperation}
         />
       )}
