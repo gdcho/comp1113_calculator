@@ -107,7 +107,7 @@ const Header = ({ setView }) => {
                       setFloatDropdownOpen(false);
                     }}
                   >
-                    Mini Float Converter
+                    Floating Point Converter
                   </a>
                   <a
                     href="#"
@@ -148,7 +148,7 @@ const Header = ({ setView }) => {
                       setOtherDropdownOpen(false);
                     }}
                   >
-                    Signed Number
+                    Signed Number 
                   </a>
                   <a
                     href="#"
