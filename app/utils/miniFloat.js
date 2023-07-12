@@ -38,30 +38,36 @@ export function convertToMiniFloat(decimal) {
 }
 
 export function convertFromMiniFloat(miniFloat) {
-    let sign = parseInt(miniFloat.slice(0, 1), 2);
-    let exponent = parseInt(miniFloat.slice(1, 5), 2) - 7;
+    let sign = parseInt(miniFloat.charAt(0), 2) === 1 ? -1 : 1;
+    let exponent = parseInt(miniFloat.slice(1, 5), 2);
     let mantissa = miniFloat.slice(5); 
 
-    if (exponent === -7 && mantissa !== "00000") { // denormalized form
-        exponent = -6;
-        mantissa = '0' + mantissa.slice(1);
-    } else if (exponent === 8) { // Infinity or NaN
+    let total = exponent !== 0 ? 1 : 0;
+    for (let i = 0; i < mantissa.length; i++) {
+        total += parseInt(mantissa.charAt(i), 2) / Math.pow(2, i+1);
+    }
+
+    // Handle the special cases
+    if (exponent === 0) {
         if (mantissa === "00000") {
-            return sign === 1 ? -Infinity : Infinity;
+            return 0;  // Zero
         } else {
-            return NaN;
+            // De-normalized form
+            exponent = -6;
+        }
+    } else if (exponent === 15) {
+        if (mantissa === "00000") {
+            return sign === -1 ? -Infinity : Infinity; // Infinity
+        } else {
+            return NaN; // Not a number
         }
     } else {
-        mantissa = '1' + mantissa;
+        // The bias is -7 for normal numbers
+        exponent -= 7;
     }
 
-    // Convert mantissa to decimal
-    let mantissaDecimal = 0;
-    for (let i = 0; i < mantissa.length; i++) {
-        mantissaDecimal += parseInt(mantissa[i]) * Math.pow(2, -i);
-    }
-
-    // Compute the decimal number from the mini float representation
-    let decimal = mantissaDecimal * Math.pow(2, exponent);
-    return sign === 1 ? -decimal : decimal;
+    let result = sign * total * Math.pow(2, exponent);
+    return result;
 }
+
+
