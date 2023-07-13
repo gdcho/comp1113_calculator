@@ -2,10 +2,36 @@
 
 import { convertToMiniFloat, convertFromMiniFloat } from "./miniFloat.js";
 
-export function miniFloatAddition(a, b, isDecimal = true) {
-  // Convert from mini float to decimal if not already
-  if (!isDecimal) {
+// Helper function to check if a number is binary
+function isBinary(num) {
+  num = num.toString();
+  return /^[01]+$/.test(num) && num.length === 10; // The number is 10 bits binary
+}
+
+// Helper function to check if a number is decimal
+function isDecimal(num) {
+  num = num.toString();
+  return /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/.test(num);
+}
+
+export function miniFloatAddition(a, b) {
+  // Convert inputs to string
+  a = a.toString();
+  b = b.toString();
+
+  // Check if input is binary
+  let isBinaryA = isBinary(a);
+  let isBinaryB = isBinary(b);
+
+  // Check if input is decimal
+  let isDecimalA = isDecimal(a);
+  let isDecimalB = isDecimal(b);
+
+  // Convert from mini float to decimal if input is binary
+  if (isBinaryA) {
     a = convertFromMiniFloat(a);
+  }
+  if (isBinaryB) {
     b = convertFromMiniFloat(b);
   }
 
@@ -14,12 +40,10 @@ export function miniFloatAddition(a, b, isDecimal = true) {
 
   // Convert back to mini float
   let miniFloatSum = convertToMiniFloat(sum);
-  console.log(miniFloatSum);
 
   // Calculate loss percentage
   let lossPercentage =
     (Math.abs(sum - convertFromMiniFloat(miniFloatSum)) / Math.abs(sum)) * 100;
-  console.log(lossPercentage);
 
   return {
     miniFloatResult: miniFloatSum,
@@ -28,27 +52,40 @@ export function miniFloatAddition(a, b, isDecimal = true) {
   };
 }
 
-export function miniFloatSubtraction(a, b, isDecimal = true) {
-  // If inputs are in decimal form, convert them to mini float
-  if (isDecimal) {
-    a = convertToMiniFloat(a);
-    b = convertToMiniFloat(b);
+export function miniFloatSubtraction(a, b) {
+  // Convert inputs to string
+  a = a.toString();
+  b = b.toString();
+
+  // Check if input is binary
+  let isBinaryA = isBinary(a);
+  let isBinaryB = isBinary(b);
+
+  // Check if input is decimal
+  let isDecimalA = isDecimal(a);
+  let isDecimalB = isDecimal(b);
+
+  // Convert from mini float to decimal if input is binary
+  if (isBinaryA) {
+    a = convertFromMiniFloat(a);
+  }
+  if (isBinaryB) {
+    b = convertFromMiniFloat(b);
   }
 
-  // Convert mini float to decimal for subtraction
-  let aDecimal = convertFromMiniFloat(a);
-  let bDecimal = convertFromMiniFloat(b);
-  let decimalDifference = aDecimal - bDecimal;
+  // Perform subtraction operation
+  let difference = parseFloat(a) - parseFloat(b);
 
-  // Convert decimal difference back to mini float
-  let miniFloatResult = convertToMiniFloat(decimalDifference);
+  // Convert difference back to mini float
+  let miniFloatDifference = convertToMiniFloat(difference);
 
   // Calculate % loss
-  let decimalDifferenceFromMiniFloat = convertFromMiniFloat(miniFloatResult);
+  let decimalDifferenceFromMiniFloat =
+    convertFromMiniFloat(miniFloatDifference);
   let lossPercentage =
-    (Math.abs(decimalDifference - decimalDifferenceFromMiniFloat) /
-      Math.abs(decimalDifference)) *
+    (Math.abs(difference - decimalDifferenceFromMiniFloat) /
+      Math.abs(difference)) *
     100;
 
-  return { miniFloatResult, lossPercentage };
+  return { miniFloatResult: miniFloatDifference, lossPercentage };
 }

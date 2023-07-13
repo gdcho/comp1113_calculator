@@ -14,6 +14,10 @@ export default function MiniFloatCalculator() {
     return /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/.test(num);
   };
 
+  const isBinary = (num) => {
+    return /^[01]+$/.test(num);
+  };
+
   const calculate = () => {
     if (
       numberA !== "" &&
@@ -21,22 +25,14 @@ export default function MiniFloatCalculator() {
       !isNaN(numberA) &&
       !isNaN(numberB)
     ) {
-      const isDecimalA = isDecimal(numberA);
-      const isDecimalB = isDecimal(numberB);
+      const isDecimalA = isDecimal(numberA) && !isBinary(numberA);
+      const isDecimalB = isDecimal(numberB) && !isBinary(numberB);
 
       let res;
       if (operation === "add") {
-        res = miniFloatAddition(
-          parseFloat(numberA),
-          parseFloat(numberB),
-          isDecimalA && isDecimalB
-        );
+        res = miniFloatAddition(numberA, numberB, isDecimalA && isDecimalB);
       } else if (operation === "sub") {
-        res = miniFloatSubtraction(
-          parseFloat(numberA),
-          parseFloat(numberB),
-          isDecimalA && isDecimalB
-        );
+        res = miniFloatSubtraction(numberA, numberB, isDecimalA && isDecimalB);
       }
       setResult(res);
     }
