@@ -11,6 +11,7 @@ function BooleanSimplifier() {
 
   const handleSimplifyExpression = () => {
     const simplified = simplifyBooleanExpression(expression);
+    console.log(expression); 
     setSimplifiedExpression(simplified);
   };
 

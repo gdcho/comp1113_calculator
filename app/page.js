@@ -202,7 +202,6 @@ export default function App() {
             expression={booleanExpression}
             setSimplifiedExpression={setSimplifiedBooleanExpression}
           />
-          <Result result={simplifiedBooleanExpression} />
         </div>
       )}
       {view === "exponentialOrLogarithm" && (
