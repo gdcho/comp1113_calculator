@@ -148,7 +148,7 @@ const Header = ({ setView }) => {
                       setOtherDropdownOpen(false);
                     }}
                   >
-                    Signed Number 
+                    Signed Number
                   </a>
                   <a
                     href="#"
@@ -160,6 +160,17 @@ const Header = ({ setView }) => {
                     }}
                   >
                     Boolean Calculator
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                    role="menuitem"
+                    onClick={() => {
+                      setView("booleanSimplifier");
+                      setOtherDropdownOpen(false);
+                    }}
+                  >
+                    Boolean Simplifier
                   </a>
                   <a
                     href="#"

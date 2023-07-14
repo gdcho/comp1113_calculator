@@ -17,6 +17,7 @@ import MatrixCalculator from "./components/matrixCalculate/MatrixCalculator";
 import NumberConverter from "./components/signedNumber/NumberConverter";
 import MiniFloatConverter from "./components/floatConvert/MiniFloatConverter";
 import MiniFloatCalculator from "./components/floatCalculate/MiniFloatCalculator";
+import BooleanSimplifier from "./components/booleanSimplifier/BooleanSimplifier";
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -44,7 +45,10 @@ export default function App() {
 
   const [matrix1, setMatrix1] = useState("");
   const [matrix2, setMatrix2] = useState("");
-  const [matrixOperation, setMatrixOperation] = useState("Add");
+
+  const [booleanExpression, setBooleanExpression] = useState("");
+  const [simplifiedBooleanExpression, setSimplifiedBooleanExpression] =
+    useState("");
 
   useEffect(() => {
     setView("image");
@@ -191,6 +195,15 @@ export default function App() {
           operation={boolOperation}
           setOperation={setBoolOperation}
         />
+      )}
+      {view === "booleanSimplifier" && (
+        <div>
+          <BooleanSimplifier
+            expression={booleanExpression}
+            setSimplifiedExpression={setSimplifiedBooleanExpression}
+          />
+          <Result result={simplifiedBooleanExpression} />
+        </div>
       )}
       {view === "exponentialOrLogarithm" && (
         <>
