@@ -1,17 +1,15 @@
 // ./components/booleanSimplifier/BooleanSimplifier.js
-
-"use client";
 import React, { useState } from "react";
 import BooleanExpressionInput from "./BooleanExpressionInput";
-import { simplifyBooleanExpression } from "../../utils/simplifyBooleanExpression";
+import axios from 'axios';
 
 function BooleanSimplifier() {
   const [expression, setExpression] = useState("");
   const [simplifiedExpression, setSimplifiedExpression] = useState("");
 
-  const handleSimplifyExpression = () => {
-    const simplified = simplifyBooleanExpression(expression);
-    console.log(expression); 
+  const handleSimplifyExpression = async () => {
+    const response = await axios.post('http://127.0.0.1:5000/simplify', { expression });
+    const simplified = response.data.result;
     setSimplifiedExpression(simplified);
   };
 

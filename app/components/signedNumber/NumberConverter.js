@@ -82,8 +82,8 @@ const NumberConverter = () => {
       <select value={representation} onChange={(event) => setRepresentation(event.target.value)}>
         <option value="signedMagnitude">Signed Magnitude</option>
         <option value="excessK">Excess K</option>
-        <option value="onesComplement">One's Complement</option>
-        <option value="twosComplement">Two's Complement</option>
+        <option value="onesComplement">One&apos;s Complement</option>
+        <option value="twosComplement">Two&apos;s Complement</option>
       </select>
       {representation === 'excessK' && (
         <input type="text" value={k} onChange={handleKChange} placeholder="Enter K value" />

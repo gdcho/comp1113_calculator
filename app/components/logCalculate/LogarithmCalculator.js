@@ -20,7 +20,7 @@ function LogarithmCalculator({
       const result = Math.log(value) / Math.log(base);
       setResult(result);
     }
-  }, [value, base]);
+  }, [value, base, setResult]);
 
   return (
     <div>

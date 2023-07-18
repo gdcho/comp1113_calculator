@@ -20,7 +20,7 @@ function ExponentialCalculator({
       const result = Math.pow(base, value);
       setResult(result);
     }
-  }, [value, base]);
+  }, [value, base, setResult]);
 
   return (
     <div>

@@ -24,7 +24,7 @@ function BaseCalculator({
 
   useEffect(() => {
     handleBaseCalculate();
-  }, [num1, num2, operation, base]);
+  }, [num1, num2, operation, base, handleBaseCalculate]);
 
   return (
     <div>
