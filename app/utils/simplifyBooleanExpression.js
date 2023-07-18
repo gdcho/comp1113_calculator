@@ -82,15 +82,12 @@
 import { tokenize, parse, TYPES } from './tokenizerAndParser';
 
 function simplifyTree(tree) {
-  if (tree.type === TYPES.OR || tree.type === TYPES.AND) {
-    // If it's an OR or AND operation, simplify both sides first
+  if (tree.type === 'AND' || tree.type === 'OR') {
     const left = simplifyTree(tree.left);
     const right = simplifyTree(tree.right);
 
     if (left.type === TYPES.SYMBOL && right.type === TYPES.SYMBOL) {
-      // If both sides are symbols, apply simplification rules
       if (left.value === right.value) {
-        // A + A = A and A . A = A
         return left;
       }
     }
@@ -99,18 +96,15 @@ function simplifyTree(tree) {
   }
 
   if (tree.type === TYPES.NOT) {
-    // If it's a NOT operation, simplify the child
     const child = simplifyTree(tree.child);
 
     if (child.type === TYPES.SYMBOL && child.value === tree.value) {
-      // A' = A
       return child;
     }
 
     return { type: TYPES.NOT, child };
   }
 
-  // If it's a symbol, return it as-is
   return tree;
 }
 
@@ -119,18 +113,18 @@ export function simplifyBooleanExpression(expression) {
   const tree = parse(tokens);
   const simplified = simplifyTree(tree);
 
-  // Now we need to convert the simplified tree back to a string
   const simplifiedExpression = treeToString(simplified);
   return simplifiedExpression;
 }
 
 function treeToString(tree) {
-  if (tree.type === TYPES.OR || tree.type === TYPES.AND) {
-    return `(${treeToString(tree.left)} ${tree.type} ${treeToString(tree.right)})`;
+  if (tree.type === 'AND' || tree.type === 'OR') {
+    const operator = tree.type === 'AND' ? '.' : '+';
+    return `(${treeToString(tree.left)} ${operator} ${treeToString(tree.right)})`;
   }
 
   if (tree.type === TYPES.NOT) {
-    return `${tree.value}'`;
+    return `${tree.child.value}'`;
   }
 
   return tree.value;
