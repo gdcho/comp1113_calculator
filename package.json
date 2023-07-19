@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm-run-all --parallel start server",
+    "dev": "npm-run-all --parallel dev:next server",
+    "dev:next": "next dev",
     "build": "next build",
     "start": "next start",
     "server": "python3 server.py",
     "lint": "next lint"
-  },
+  },  
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@tailwindcss/aspect-ratio": "^0.4.2",
