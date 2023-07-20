@@ -18,6 +18,7 @@ import NumberConverter from "./components/signedNumber/NumberConverter";
 import MiniFloatConverter from "./components/floatConvert/MiniFloatConverter";
 import MiniFloatCalculator from "./components/floatCalculate/MiniFloatCalculator";
 import BooleanSimplifier from "./components/booleanSimplifier/BooleanSimplifier";
+import BooleanExpression from "./components/booleanAlgebra/SOPPOS";
 
 export default function App() {
   const [value, setValue] = useState("");
@@ -186,6 +187,7 @@ export default function App() {
       {view === "miniFloatConverter" && <MiniFloatConverter />}
       {view === "miniFloatCalculator" && <MiniFloatCalculator />}
       {view === "numberConverter" && <NumberConverter />}
+      {view === "booleanExpression" && <BooleanExpression />}
       {view === "booleanCalculator" && (
         <BooleanCalculator
           value1={boolValue1}
