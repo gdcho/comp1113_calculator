@@ -124,28 +124,6 @@ export default function App() {
             width={400}
             height={400}
           />
-          <br />
-          <p
-            style={{
-              textAlign: "center",
-              fontSize: "20px",
-            }}
-          >
-            COMP 1113 - Applied Mathematics for Computing
-          </p>
-          <p
-            style={{
-              textAlign: "center",
-            }}
-          >
-            The course is divided into three parts:
-            <br />
-            (1) Boolean algebra and design of logic circuits;
-            <br />
-            (2) number systems and data representation; and
-            <br />
-            (3) functions, linear equations, vectors and matrices.
-          </p>
         </div>
       )}
       {view === "baseConverter" && (
@@ -167,7 +145,7 @@ export default function App() {
         </div>
       )}
       {view === "baseCalculator" && (
-        <div>
+        <>
           <BaseCalculator
             base={base}
             setBase={setBase}
@@ -182,7 +160,7 @@ export default function App() {
             setCalculationResult={setCalculationResult}
           />
           <CalculateResult result={calculationResult} />
-        </div>
+        </>
       )}
       {view === "miniFloatConverter" && <MiniFloatConverter />}
       {view === "miniFloatCalculator" && <MiniFloatCalculator />}

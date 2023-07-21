@@ -25,7 +25,7 @@ export default function MatrixCalculator() {
   };
 
   return (
-    <div>
+    <>
       <MatrixInput matrix={matrix1} setMatrix={setMatrix1} id="matrix1" />
       <MatrixSelect matrixOperation={matrixOperation} setMatrixOperation={setMatrixOperation} />
       <MatrixInput matrix={matrix2} setMatrix={setMatrix2} id="matrix2" />
@@ -33,6 +33,6 @@ export default function MatrixCalculator() {
         Calculate
       </button>
       <CalculateMatrixResult result={result} /> {/* Display the result */}
-    </div>
+    </>
   );
 }

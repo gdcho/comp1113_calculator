@@ -23,14 +23,14 @@ function ExponentialCalculator({
   }, [value, base, setResult]);
 
   return (
-    <div>
+    <>
       <ValueInput
         value={value}
         setValue={setValue}
       />
       <BaseSelect base={base} setBase={setBase} style={selectStyles} />
       <p>Base {base} to the power of {value} is: {result}</p>
-    </div>
+    </>
   );
 }
 

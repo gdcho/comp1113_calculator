@@ -24,7 +24,7 @@ export default function MiniFloatConverter() {
   }
 
   return (
-    <div>
+    <>
       <input 
         type="text" 
         value={decimalValue} 
@@ -37,6 +37,6 @@ export default function MiniFloatConverter() {
         onChange={handleMiniFloatChange} 
         placeholder="Enter a 10-bit floating point value"
       />
-    </div>
+    </>
   );
 }

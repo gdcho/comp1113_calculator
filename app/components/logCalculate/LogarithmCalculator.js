@@ -23,14 +23,14 @@ function LogarithmCalculator({
   }, [value, base, setResult]);
 
   return (
-    <div>
+    <>
       <ValueInput
         value={value}
         setValue={setValue}
       />
       <BaseSelect base={base} setBase={setBase} style={selectStyles} />
       <p>Log base {base} of {value} is: {result}</p>
-    </div>
+    </>
   );
 }
 

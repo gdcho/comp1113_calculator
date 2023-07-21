@@ -16,7 +16,7 @@ function BooleanSimplifier() {
   };
 
   return (
-    <div>
+    <>
       <div
         style={{ border: "1px solid black", padding: "10px", margin: "10px" }}
       >
@@ -44,7 +44,7 @@ function BooleanSimplifier() {
       />
       <button onClick={handleSimplifyExpression}>Simplify Expression</button>
       <p>Simplified Expression: {simplifiedExpression}</p>
-    </div>
+    </>
   );
 }
 

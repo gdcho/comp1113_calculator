@@ -115,9 +115,9 @@ function BooleanExpression() {
   }
 
   return (
-    <div>
+    <>
       <textarea value={terms} onChange={handleTermsChange} />
-      <div>
+      <>
         {mode === "SOP" && (
           <>
             <div>Minterms: Σm({currentTerms.join(", ")})</div>
@@ -130,8 +130,8 @@ function BooleanExpression() {
             <div>Maxterms: πM({complementaryTerms.join(", ")})</div>
           </>
         )}
-      </div>
-    </div>
+      </>
+    </>
   );
 }
 

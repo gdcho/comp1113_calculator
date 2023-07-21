@@ -53,7 +53,7 @@ export default function MiniFloatCalculator() {
   };
 
   return (
-    <div>
+    <>
       <input
         type="text"
         value={numberA}
@@ -73,6 +73,6 @@ export default function MiniFloatCalculator() {
       <br />
       <button onClick={calculate}>Calculate</button>
       {result && <ResultDisplay result={result} />}
-    </div>
+    </>
   );
 }

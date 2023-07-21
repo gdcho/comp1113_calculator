@@ -76,7 +76,7 @@ const NumberConverter = () => {
   }
 
   return (
-    <div>
+    <>
       <input type="text" value={decimal} onChange={handleDecimalChange} placeholder="Enter decimal number" />
       <input type="text" value={binary} onChange={handleBinaryChange} placeholder="Enter binary number" />
       <select value={representation} onChange={(event) => setRepresentation(event.target.value)}>
@@ -88,7 +88,7 @@ const NumberConverter = () => {
       {representation === 'excessK' && (
         <input type="text" value={k} onChange={handleKChange} placeholder="Enter K value" />
       )}
-    </div>
+    </>
   );
 }
 
