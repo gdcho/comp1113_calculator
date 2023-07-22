@@ -45,18 +45,18 @@ const Header = ({ setView }) => {
       >
         <Image src="/img/bcit.png" alt="BCIT" width={87} height={73} />
       </div>
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-5">
-        <div className="relative" ref={baseRef}>
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-5 box-shadow">
+        <div className="relative" ref={baseRef} style = {{zIndex: 1}}>
           <div
-            className="rounded bg-white shadow cursor-pointer"
+            className="rounded bg-white shadow cursor-pointer box-shadow"
             onClick={() => setBaseDropdownOpen(!baseDropdownOpen)}
           >
             Base
           </div>
           {baseDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+            <div className="absolute right-0">
               <div
-                className="py-1"
+                className="py-1 box-shadow"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="options-menu"
@@ -87,17 +87,17 @@ const Header = ({ setView }) => {
             </div>
           )}
         </div>
-        <div className="relative" ref={floatRef}>
+        <div className="relative" ref={floatRef} style = {{zIndex: 1}}>
           <div
-            className="rounded bg-white shadow cursor-pointer"
+            className="rounded bg-white shadow cursor-pointer box-shadow"
             onClick={() => setFloatDropdownOpen(!floatDropdownOpen)}
           >
             Floating Point
           </div>
           {floatDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+            <div className="absolute right-0">
               <div
-                className="py-1"
+                className="py-1 box-shadow"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="options-menu"
@@ -128,17 +128,17 @@ const Header = ({ setView }) => {
             </div>
           )}
         </div>
-        <div className="relative" ref={booleanRef}>
+        <div className="relative" ref={booleanRef} style = {{zIndex: 1}}>
           <div
-            className="rounded bg-white shadow cursor-pointer"
+            className="rounded bg-white shadow cursor-pointer box-shadow"
             onClick={() => setBooleanDropdownOpen(!booleanDropdownOpen)}
           >
             Boolean
           </div>
           {booleanDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+            <div className="absolute right-0">
               <div
-                className="py-1"
+                className="py-1 box-shadow"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="options-menu"
@@ -180,17 +180,17 @@ const Header = ({ setView }) => {
             </div>
           )}
         </div>
-        <div className="relative" ref={otherRef}>
+        <div className="relative" ref={otherRef} style = {{zIndex: 1}}>
           <div
-            className="rounded bg-white shadow cursor-pointer"
+            className="rounded bg-white shadow cursor-pointer box-shadow"
             onClick={() => setOtherDropdownOpen(!otherDropdownOpen)}
           >
             Other Operations
           </div>
           {otherDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+            <div className="absolute right-0">
               <div
-                className="py-1"
+                className="py-1 box-shadow"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="options-menu"

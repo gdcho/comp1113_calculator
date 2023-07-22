@@ -1,12 +1,10 @@
 // utils/baseCalculate.js
 export const baseCalculate = (num1, num2, operation, base) => {
-  // Convert numbers from the specified base to decimal
   let num1Decimal = convertBaseToDecimal(num1, base);
   let num2Decimal = convertBaseToDecimal(num2, base);
   
   let result = 0;
   
-  // Perform the operation in decimal
   switch (operation) {
     case "+":
       result = num1Decimal + num2Decimal;
@@ -28,11 +26,9 @@ export const baseCalculate = (num1, num2, operation, base) => {
       return;
   }
   
-  // Convert the result back to the specified base
   return convertDecimalToBase(result, base);
 };
 
-// Convert a number from a specific base to decimal, supporting decimals
 function convertBaseToDecimal(num, base) {
   let [integer, fraction = ''] = num.split('.');
 
@@ -44,7 +40,6 @@ function convertBaseToDecimal(num, base) {
   return integer + fraction;
 }
 
-// Convert a number from decimal to a specific base, supporting decimals
 function convertDecimalToBase(num, base) {
   let integer = Math.floor(num);
   let fraction = num - integer;

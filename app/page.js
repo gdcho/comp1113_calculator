@@ -65,24 +65,6 @@ export default function App() {
     setShouldRenderImage(true);
   }, []);
 
-  const selectStyles = {
-    display: "inline-block",
-    position: "relative",
-    width: "200px",
-    height: "30px",
-    padding: "5px 5px",
-    fontSize: "14px",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-    appearance: "none",
-    backgroundColor: "#fff",
-    backgroundImage:
-      "url(\"data:image/svg+xml;utf8,<svg fill='%232C3E50' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>\")",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "right 0.5em center",
-    backgroundSize: "0.8em 0.8em",
-  };
-
   const operationStyles = {
     display: "inline-block",
     position: "relative",
@@ -133,11 +115,15 @@ export default function App() {
           <BaseSelect
             base={fromBase}
             setBase={setFromBase}
-            style={selectStyles}
+            operationStyle={operationStyles}
           />
           <p>to</p>
           <br />
-          <BaseSelect base={toBase} setBase={setToBase} style={selectStyles} />
+          <BaseSelect
+            base={toBase}
+            setBase={setToBase}
+            operationStyle={operationStyles}
+          />
           <br />
           <br />
           <Result result={result} calculation={calculation} toBase={toBase} />
@@ -163,8 +149,10 @@ export default function App() {
         </>
       )}
       {view === "miniFloatConverter" && <MiniFloatConverter />}
-      {view === "miniFloatCalculator" && <MiniFloatCalculator />}
-      {view === "numberConverter" && <NumberConverter />}
+      {view === "miniFloatCalculator" && (
+        <MiniFloatCalculator operationStyle={operationStyles} />
+      )}
+      {view === "numberConverter" && <NumberConverter operationStyle={operationStyles} />}
       {view === "booleanExpression" && <BooleanExpression />}
       {view === "booleanCalculator" && (
         <BooleanCalculator
@@ -174,6 +162,7 @@ export default function App() {
           setValue2={setBoolValue2}
           operation={boolOperation}
           setOperation={setBoolOperation}
+          operationStyle={operationStyles}
         />
       )}
       {view === "booleanSimplifier" && (
@@ -190,6 +179,7 @@ export default function App() {
             operationType={operationType}
             setOperationType={setOperationType}
             options={["logarithm", "exponential"]}
+            operationStyle={operationStyles}
           />
           {operationType === "logarithm" && (
             <LogarithmCalculator
@@ -197,9 +187,9 @@ export default function App() {
               value={logValue}
               setValue={setLogValue}
               setBase={setLogBase}
-              selectStyles={selectStyles}
               setResult={setResult}
               result={result}
+              style={operationStyles}
             />
           )}
           {operationType === "exponential" && (
@@ -208,9 +198,9 @@ export default function App() {
               value={expValue}
               setValue={setExpValue}
               setBase={setExpBase}
-              selectStyles={selectStyles}
               setResult={setResult}
               result={result}
+              style={operationStyles}
             />
           )}
         </>
@@ -223,6 +213,7 @@ export default function App() {
           setMatrix2={setMatrix2}
           matrixOperation={operation}
           setMatrixOperation={setOperation}
+          operationStyle={operationStyles}
         />
       )}
     </RootLayout>

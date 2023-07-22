@@ -4,7 +4,7 @@ import {
   miniFloatSubtraction,
 } from "../../utils/miniFloatCalculate";
 
-export default function MiniFloatCalculator() {
+export default function MiniFloatCalculator({operationStyle}) {
   const [numberA, setNumberA] = useState("");
   const [numberB, setNumberB] = useState("");
   const [result, setResult] = useState(null);
@@ -60,7 +60,7 @@ export default function MiniFloatCalculator() {
         onChange={(e) => setNumberA(e.target.value)}
         placeholder="Enter decimal or mini float"
       />
-      <select value={operation} onChange={(e) => setOperation(e.target.value)}>
+      <select value={operation} onChange={(e) => setOperation(e.target.value)} style={operationStyle}>
         <option value="add">+</option>
         <option value="sub">-</option>
       </select>

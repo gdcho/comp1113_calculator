@@ -12,7 +12,7 @@ import {
   decimalToTwosComplement
 } from '../../utils/numberConversions';
 
-const NumberConverter = () => {
+const NumberConverter = ({operationStyle}) => {
   const [decimal, setDecimal] = useState('');
   const [binary, setBinary] = useState('');
   const [representation, setRepresentation] = useState('signedMagnitude');
@@ -79,7 +79,7 @@ const NumberConverter = () => {
     <>
       <input type="text" value={decimal} onChange={handleDecimalChange} placeholder="Enter decimal number" />
       <input type="text" value={binary} onChange={handleBinaryChange} placeholder="Enter binary number" />
-      <select value={representation} onChange={(event) => setRepresentation(event.target.value)}>
+      <select value={representation} onChange={(event) => setRepresentation(event.target.value)} style={operationStyle}>
         <option value="signedMagnitude">Signed Magnitude</option>
         <option value="excessK">Excess K</option>
         <option value="onesComplement">One&apos;s Complement</option>

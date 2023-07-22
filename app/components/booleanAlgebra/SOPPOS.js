@@ -1,6 +1,5 @@
 // booleanAlgebra/SOPPOS.js
 "use client";
-import { prod } from "mathjs";
 import React, { useState } from "react";
 
 function BooleanExpression() {
@@ -83,11 +82,10 @@ function BooleanExpression() {
                 (bit === "0" && product.includes(variable + "'"))
               ) {
                 productSatisfied = true;
-                break; 
+                break;
               }
             }
           }
-
           return productSatisfied;
         });
       } else {
@@ -105,18 +103,24 @@ function BooleanExpression() {
           }
         }
       }
-
       if (valid) {
         combinations.push(combination);
       }
     }
-
     return combinations;
   }
-
   return (
     <>
-      <textarea value={terms} onChange={handleTermsChange} />
+      <textarea
+        value={terms}
+        onChange={handleTermsChange}
+        style={{
+          border: "2px solid #003c71",
+          borderRadius: "5px",
+          padding: "10px",
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+        }}
+      />
       <>
         {mode === "SOP" && (
           <>

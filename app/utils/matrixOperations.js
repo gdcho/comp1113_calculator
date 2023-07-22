@@ -1,7 +1,6 @@
 "use client";
 
 export function calculateMatrixOperation(matrix1, matrix2, operation) {
-  // Parse matrix strings into 2D arrays
   const m1 = matrix1.split("\n").map((row) => row.split(" ").map(Number));
   const m2 = matrix2.split("\n").map((row) => row.split(" ").map(Number));
 
@@ -18,23 +17,21 @@ export function calculateMatrixOperation(matrix1, matrix2, operation) {
       result = multiplyMatrices(m1, m2);
       break;
     case "Transpose":
-      result = transposeMatrix(m1); // It transposes the first matrix
+      result = transposeMatrix(m1); 
       break;
     case "Determinant":
-      result = determinantMatrix(m1); // It calculates the determinant of the first matrix
+      result = determinantMatrix(m1); 
       break;
     case "Inverse":
-      result = inverseMatrix(m1); // It calculates the inverse of the first matrix
+      result = inverseMatrix(m1); 
       break;
     default:
       throw new Error(`Unsupported operation: ${operation}`);
   }
 
   if (Array.isArray(result)) {
-    // Convert result back into a string
     return result.map((row) => row.join(" ")).join("\n");
   } else {
-    // If result is not an array, convert it to a string and return it
     return result.toString();
   }
 }
@@ -101,7 +98,6 @@ function transposeMatrix(matrix) {
   return matrix[0].map((_, i) => matrix.map((row) => row[i]));
 }
 
-// This implementation assumes that you've imported the mathjs library
 import * as math from 'mathjs';
 
 function determinantMatrix(matrix) {

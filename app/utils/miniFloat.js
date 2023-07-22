@@ -47,22 +47,19 @@ export function convertFromMiniFloat(miniFloat) {
         total += parseInt(mantissa.charAt(i), 2) / Math.pow(2, i+1);
     }
 
-    // Handle the special cases
     if (exponent === 0) {
         if (mantissa === "00000") {
-            return 0;  // Zero
+            return 0;  
         } else {
-            // De-normalized form
             exponent = -6;
         }
     } else if (exponent === 15) {
         if (mantissa === "00000") {
-            return sign === -1 ? -Infinity : Infinity; // Infinity
+            return sign === -1 ? -Infinity : Infinity; 
         } else {
-            return NaN; // Not a number
+            return NaN; 
         }
     } else {
-        // The bias is -7 for normal numbers
         exponent -= 7;
     }
 

@@ -14,6 +14,13 @@ export default function MatrixInput({ matrix, setMatrix, id }) {
         onChange={(e) => setMatrix(e.target.value)}
         rows={5}
         cols={20}
+        style={{
+          width: "80%",
+          padding: "10px",
+          margin: "10px 0",
+          borderRadius: "4px",
+          border: "1px solid gray",
+        }}
       />
     </div>
   );

@@ -1,14 +1,11 @@
 function convertBase(value, fromBase, toBase) {
-    // Split the input into integer and fractional parts
     const [integerPart, fractionalPart] = value.split(".");
   
-    // Convert the integer part
     let decimalInteger = parseInt(integerPart, fromBase);
     if (isNaN(decimalInteger)) {
       return "Invalid input";
     }
   
-    // Convert the fractional part
     let decimalFraction = 0;
     if (fractionalPart !== undefined) {
       for (let i = 0; i < fractionalPart.length; i++) {
@@ -20,7 +17,6 @@ function convertBase(value, fromBase, toBase) {
       }
     }
   
-    // Combine the integer and fractional parts and convert to the target base
     const decimalValue = decimalInteger + decimalFraction;
     return decimalValue.toString(toBase);
   }
@@ -30,7 +26,6 @@ function convertBase(value, fromBase, toBase) {
   
     let calculation = "";
   
-    // Conversion from Decimal to Other Base System
     if (fromBase === 10) {
       let integerCalculation = parseInt(integerPart, 10);
       let convertedInteger = "";
@@ -67,12 +62,10 @@ function convertBase(value, fromBase, toBase) {
       }
       calculation += ` (${toBase})`;
     }
-    // Conversion from Other Base System to Decimal
     else if (toBase === 10) {
       let decimalValue = 0;
       calculation += `${value}(${fromBase}) = `;
   
-      // Integer part calculations
       for (let i = 0; i < integerPart.length; i++) {
         const digitValue = parseInt(integerPart[i], fromBase);
         const power = integerPart.length - i - 1;
@@ -81,7 +74,6 @@ function convertBase(value, fromBase, toBase) {
         calculation += term + (i !== integerPart.length - 1 ? " + " : "");
       }
   
-      // Fractional part calculations
       if (fractionalPart !== undefined) {
         for (let i = 0; i < fractionalPart.length; i++) {
           const digitValue = parseInt(fractionalPart[i], fromBase);
@@ -94,7 +86,6 @@ function convertBase(value, fromBase, toBase) {
   
       calculation += ` = ${decimalValue}(10)`;
     }
-    // Conversion from Other Base System to Non-Decimal System
     else {
       const decimalValue = convertBase(value, fromBase, 10);
       calculation += `${value}(${fromBase}) = ${decimalValue}(10)`;
