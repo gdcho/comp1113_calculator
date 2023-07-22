@@ -10,7 +10,6 @@ function BooleanExpression() {
   };
 
   const mode = terms.includes("(" && ")") ? "POS" : "SOP";
-  console.log(mode);
   const binaryConverter =
     mode === "SOP" ? convertToBinarySOP : convertToBinaryPOS;
   const currentTerms = calculateTerms(terms, binaryConverter);
@@ -67,7 +66,6 @@ function BooleanExpression() {
         const products = term
           .split(" * ")
           .map((product) => product.replace(/[()]/g, "").trim());
-        console.log(products);
 
         valid = products.every((product) => {
           let productSatisfied = false;

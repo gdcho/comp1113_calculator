@@ -45,7 +45,7 @@ const Header = ({ setView }) => {
       >
         <Image src="/img/bcit.png" alt="BCIT" width={87} height={73} />
       </div>
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-5 box-shadow">
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-1 box-shadow">
         <div className="relative" ref={baseRef} style = {{zIndex: 1}}>
           <div
             className="rounded bg-white shadow cursor-pointer box-shadow"

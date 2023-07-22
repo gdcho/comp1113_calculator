@@ -2,15 +2,24 @@
 import React, { useState } from "react";
 import BooleanExpressionInput from "./BooleanExpressionInput";
 import axios from "axios";
+import { re } from "mathjs";
 
 function BooleanSimplifier() {
   const [expression, setExpression] = useState("");
   const [simplifiedExpression, setSimplifiedExpression] = useState("");
 
   const handleSimplifyExpression = async () => {
-    const response = await axios.post("http://127.0.0.1:5000/simplify", {
-      expression,
+    const response = await axios({
+      method: 'post',
+      url: 'http://127.0.0.1:5000/simplify',
+      data: {
+        expression,
+      },
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
+    
     const simplified = response.data.result;
     setSimplifiedExpression(simplified);
   };
