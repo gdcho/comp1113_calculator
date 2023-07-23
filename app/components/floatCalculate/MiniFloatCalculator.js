@@ -60,10 +60,12 @@ export default function MiniFloatCalculator({operationStyle}) {
         onChange={(e) => setNumberA(e.target.value)}
         placeholder="Enter decimal or mini float"
       />
+      <br />
       <select value={operation} onChange={(e) => setOperation(e.target.value)} style={operationStyle}>
         <option value="add">+</option>
         <option value="sub">-</option>
       </select>
+      <br />
       <input
         type="text"
         value={numberB}

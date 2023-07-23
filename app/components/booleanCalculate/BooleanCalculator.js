@@ -22,7 +22,7 @@ export default function BooleanCalculator({
       <BooleanInput
         value={value1}
         setValue={setValue1}
-        style={{ transform: "scale(2)", margin: "0 20px 0 0" }}
+        style={{ transform: "scale(1)", margin: "0 20px 0 0" }}
       />
       <BooleanOperation
         operation={operation}
@@ -32,7 +32,7 @@ export default function BooleanCalculator({
       <BooleanInput
         value={value2}
         setValue={setValue2}
-        style={{ transform: "scale(2)", margin: "0 0 0 20px" }}
+        style={{ transform: "scale(1)", margin: "0 0 0 20px" }}
       />
 
       <p>Result: {result.toString()}</p>

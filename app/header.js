@@ -43,10 +43,14 @@ const Header = ({ setView }) => {
         className="flex items-center justify-center cursor-pointer"
         onClick={() => setView("image")}
       >
-        <Image src="/img/bcit.png" alt="BCIT" width={87} height={73} />
+        <Image src="/img/bcit.png" alt="BCIT" width={55} height={55} />
       </div>
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-1 box-shadow">
-        <div className="relative" ref={baseRef} style = {{zIndex: 1}}>
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-5 box-shadow">
+        <div
+          className="relative"
+          ref={baseRef}
+          style={{ zIndex: baseDropdownOpen ? 1000 : 1 }}
+        >
           <div
             className="rounded bg-white shadow cursor-pointer box-shadow"
             onClick={() => setBaseDropdownOpen(!baseDropdownOpen)}
@@ -87,7 +91,11 @@ const Header = ({ setView }) => {
             </div>
           )}
         </div>
-        <div className="relative" ref={floatRef} style = {{zIndex: 1}}>
+        <div
+          className="relative"
+          ref={floatRef}
+          style={{ zIndex: floatDropdownOpen ? 1000 : 1 }}
+        >
           <div
             className="rounded bg-white shadow cursor-pointer box-shadow"
             onClick={() => setFloatDropdownOpen(!floatDropdownOpen)}
@@ -128,7 +136,11 @@ const Header = ({ setView }) => {
             </div>
           )}
         </div>
-        <div className="relative" ref={booleanRef} style = {{zIndex: 1}}>
+        <div
+          className="relative"
+          ref={booleanRef}
+          style={{ zIndex: booleanDropdownOpen ? 1000 : 1 }}
+        >
           <div
             className="rounded bg-white shadow cursor-pointer box-shadow"
             onClick={() => setBooleanDropdownOpen(!booleanDropdownOpen)}
@@ -180,7 +192,11 @@ const Header = ({ setView }) => {
             </div>
           )}
         </div>
-        <div className="relative" ref={otherRef} style = {{zIndex: 1}}>
+        <div
+          className="relative"
+          ref={otherRef}
+          style={{ zIndex: otherDropdownOpen ? 1000 : 1 }}
+        >
           <div
             className="rounded bg-white shadow cursor-pointer box-shadow"
             onClick={() => setOtherDropdownOpen(!otherDropdownOpen)}

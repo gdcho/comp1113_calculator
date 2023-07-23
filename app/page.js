@@ -69,10 +69,9 @@ export default function App() {
     display: "inline-block",
     position: "relative",
     textAlign: "center",
-    width: "100px",
-    height: "45px",
-    padding: "5px 5px",
-    fontSize: "14px",
+    width: "80px",
+    height: "30px",
+    fontSize: "12px",
     border: "1px solid #ccc",
     borderRadius: "4px",
     backgroundColor: "#fff",
@@ -103,8 +102,8 @@ export default function App() {
           <Image
             src="/img/comp_1113.png"
             alt="COMP1113"
-            width={400}
-            height={400}
+            width={300}
+            height={300}
           />
         </div>
       )}
@@ -112,20 +111,19 @@ export default function App() {
         <div>
           <ValueInput value={value} setValue={setValue} />
           <br />
-          <BaseSelect
-            base={fromBase}
-            setBase={setFromBase}
-            operationStyle={operationStyles}
-          />
-          <p>to</p>
-          <br />
-          <BaseSelect
-            base={toBase}
-            setBase={setToBase}
-            operationStyle={operationStyles}
-          />
-          <br />
-          <br />
+          <div className="flex justify-around items-center">
+            <BaseSelect
+              base={fromBase}
+              setBase={setFromBase}
+              operationStyle={operationStyles}
+            />
+            <p>to</p>
+            <BaseSelect
+              base={toBase}
+              setBase={setToBase}
+              operationStyle={operationStyles}
+            />
+          </div>
           <Result result={result} calculation={calculation} toBase={toBase} />
           <br />
         </div>
@@ -152,7 +150,9 @@ export default function App() {
       {view === "miniFloatCalculator" && (
         <MiniFloatCalculator operationStyle={operationStyles} />
       )}
-      {view === "numberConverter" && <NumberConverter operationStyle={operationStyles} />}
+      {view === "numberConverter" && (
+        <NumberConverter operationStyle={operationStyles} />
+      )}
       {view === "booleanExpression" && <BooleanExpression />}
       {view === "booleanCalculator" && (
         <BooleanCalculator

@@ -1,8 +1,8 @@
 // components/logCalculate/LogarithmCalculator.js
 "use client";
 import React, { useEffect } from "react";
-import ValueInput from '../baseConvert/ValueInput';
-import BaseSelect from '../baseConvert/BaseSelect';
+import ValueInput from "../baseConvert/ValueInput";
+import BaseSelect from "../baseConvert/BaseSelect";
 
 function LogarithmCalculator({
   base,
@@ -10,11 +10,11 @@ function LogarithmCalculator({
   setValue,
   setBase,
   setResult,
-  result, 
+  result,
 }) {
   useEffect(() => {
     if (isNaN(value) || isNaN(base)) {
-      setResult('Invalid Input');
+      setResult("Invalid Input");
     } else {
       const result = Math.log(value) / Math.log(base);
       setResult(result);
@@ -25,10 +25,9 @@ function LogarithmCalculator({
     display: "inline-block",
     position: "relative",
     textAlign: "center",
-    width: "100px",
-    height: "45px",
-    padding: "5px 5px",
-    fontSize: "14px",
+    width: "80px",
+    height: "30px",
+    fontSize: "12px",
     border: "1px solid #ccc",
     borderRadius: "4px",
     backgroundColor: "#fff",
@@ -44,12 +43,17 @@ function LogarithmCalculator({
 
   return (
     <>
-      <ValueInput
-        value={value}
-        setValue={setValue}
+      <br />
+      <ValueInput value={value} setValue={setValue} />
+      <br />
+      <BaseSelect
+        base={base}
+        setBase={setBase}
+        operationStyle={operationStyles}
       />
-      <BaseSelect base={base} setBase={setBase} operationStyle={operationStyles} />
-      <p>Log base {base} of {value} is: {result}</p>
+      <p>
+        Log base {base} of {value} is: {result}
+      </p>
     </>
   );
 }

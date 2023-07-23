@@ -79,6 +79,7 @@ const NumberConverter = ({operationStyle}) => {
     <>
       <input type="text" value={decimal} onChange={handleDecimalChange} placeholder="Enter decimal number" />
       <input type="text" value={binary} onChange={handleBinaryChange} placeholder="Enter binary number" />
+      <br />
       <select value={representation} onChange={(event) => setRepresentation(event.target.value)} style={operationStyle}>
         <option value="signedMagnitude">Signed Magnitude</option>
         <option value="excessK">Excess K</option>
