@@ -15,7 +15,7 @@ export default function MatrixInput({ matrix, setMatrix, id }) {
         rows={5}
         cols={20}
         style={{
-          width: "130px",
+          width: "90px",
           height: "80px",
           padding: "10px",
           margin: "10px 0",
