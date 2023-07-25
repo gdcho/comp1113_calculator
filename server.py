@@ -1,3 +1,4 @@
+## server.py
 from flask import Flask, request
 from sympy import symbols, simplify, sympify, to_cnf
 from sympy.abc import A, B, C
@@ -27,7 +28,7 @@ def simplify_expression():
 
     expression = request.json.get('expression')
     sympy_expr = parse_expression(expression)
-    
+
     if sympy_expr is None:
         return {'error': 'Invalid boolean expression'}, 400
 
@@ -38,5 +39,3 @@ def simplify_expression():
 
     return {'result': str(simplified_expr)}, 200
 
-if __name__ == "__main__":
-    app.run(port=5000)

@@ -9,6 +9,10 @@ function BooleanSimplifier() {
   const [simplifiedExpression, setSimplifiedExpression] = useState("");
 
   const handleSimplifyExpression = async () => {
+    if (expression.trim() === "") {
+      alert("Please input an expression");
+      return;
+    }
     const response = await axios({
       method: 'post',
       url: 'http://127.0.0.1:5000/simplify',
