@@ -106,13 +106,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 │   └── vercel.svg
 ├── requirements.txt
 ├── server.py
-├── tailwind.config.js
-├── venv
-│   ├── bin
-│   ├── lib
-│   ├── pyvenv.cfg
-│   └── share
-└── vercel.json
+└── tailwind.config.js
 ```
 
 ## Learn More
