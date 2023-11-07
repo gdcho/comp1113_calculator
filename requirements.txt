@@ -94,7 +94,7 @@ urllib3==1.26.15
 virtualenv==20.23.0
 waitress==2.1.2
 wcwidth==0.2.6
-Werkzeug==2.3.6
+Werkzeug==3.0.1
 widgetsnbextension==4.0.7
 wordcloud==1.9.1.1
 wrapt==1.15.0
