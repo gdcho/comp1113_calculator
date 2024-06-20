@@ -17,7 +17,7 @@
     "axios": "^1.7.2",
     "boolean": "^3.2.0",
     "boolean-expression": "^2.0.0",
-    "eslint": "9.4.0",
+    "eslint": "9.5.0",
     "eslint-config-next": "^14.2.4",
     "mathjs": "^13.0.0",
     "next": "14.2.4",
