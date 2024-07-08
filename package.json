@@ -11,7 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^2.1.0",
+    "@headlessui/react": "^2.1.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
